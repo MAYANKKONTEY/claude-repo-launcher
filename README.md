@@ -87,5 +87,5 @@ Claude fills in the form, **asks you before clicking Create**, then pushes and s
 
 - [ ] Add `.gitignore` templates for Python, Node and Swift
 - [ ] Turn on GitHub Pages automatically for static sites
-- [ ] Set repo topics and description after creation
+- [x] Set repo topics and description after creation
 - [ ] Log each launch to [Build-in-public-365-day](https://github.com/MAYANKKONTEY/Build-in-public-365-day)

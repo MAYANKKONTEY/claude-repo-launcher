@@ -59,7 +59,8 @@ gh auth status 2>&1 | head -5
    - If a login page shows, **stop** and ask the user to sign in themselves.
 4. `find` the fields: "Repository name", "Description", "Choose visibility",
    "Create repository".
-5. Click the name field → type the name. Click Description → type it.
+5. Fill the name and description. Prefer `form_input` (sets the value exactly)
+   over click + `type` (can drop characters).
 6. Set visibility (Public is GitHub's current default — verify in screenshot).
 7. Leave README / .gitignore / license **off**.
 8. **Verify before submitting** — take a screenshot and `zoom` on the name and
@@ -130,7 +131,11 @@ If the session supplies commit attribution lines, append them to the message.
 
 1. `git log --oneline -1` and `git ls-remote origin` → remote has the commit.
 2. Optionally reload `github.com/OWNER/NAME` in Chrome and screenshot the file list.
-3. Report to the user in 2–3 lines: repo link, what's in it, one next step.
+3. Polish (optional): click the ⚙ next to **About** on the repo page to fix the
+   description and add 4–6 topics (e.g. `claude`, `automation`) for discoverability.
+   Set the description with `form_input`, type topics separated by spaces, then
+   **Save changes** and screenshot to confirm the dialog closed.
+4. Report to the user in 2–3 lines: repo link, what's in it, one next step.
 
 ---
 
