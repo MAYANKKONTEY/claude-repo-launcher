@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-label="Features: auto-create, self-healing, safe by default, works anywhere">
+  <defs>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1031"/>
+      <stop offset="1" stop-color="#0D0918"/>
+    </linearGradient>
+    <style>
+      .mono{font-family:'JetBrains Mono','Fira Code','SFMono-Regular',Menlo,Consolas,'DejaVu Sans Mono',monospace}
+      .sans{font-family:Inter,'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif}
+      .c{fill:url(#card);stroke:#A78BFA;stroke-opacity:.25}
+      .t{font-size:21px;font-weight:700;fill:#FFFFFF}
+      .b{font-size:13px;fill:#B9AEE0}
+      .icon{fill:none;stroke:#FFFFFF;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <!-- 1 auto-create -->
+  <g transform="translate(24 30)">
+    <rect class="c" width="290" height="240" rx="18"/>
+    <rect x="24" width="242" height="3" rx="1.5" fill="url(#flow)"/>
+    <rect x="24" y="26" width="46" height="46" rx="12" fill="url(#tile)"/>
+    <path class="icon" d="M47 39 V59 M37 49 H57"/>
+    <text x="24" y="112" class="sans t">Auto-create</text>
+    <text x="24" y="144" class="mono b">Your prompt is the yes.</text>
+    <text x="24" y="166" class="mono b">Names it, creates it,</text>
+    <text x="24" y="188" class="mono b">ships it. No forms,</text>
+    <text x="24" y="210" class="mono b">no "are you sure?".</text>
+  </g>
+
+  <!-- 2 self-healing -->
+  <g transform="translate(338 30)">
+    <rect class="c" width="290" height="240" rx="18" stroke="#FB923C" stroke-opacity="0.55"/>
+    <rect x="24" width="242" height="3" rx="1.5" fill="#FB923C"/>
+    <rect x="24" y="26" width="46" height="46" rx="12" fill="url(#tile)"/>
+    <path class="icon" d="M57 44 A11 11 0 1 0 58 54 M57 37 V44 H50"/>
+    <text x="24" y="112" class="sans t">Self-healing</text>
+    <text x="24" y="144" class="mono b">Old repo won't fetch?</text>
+    <text x="24" y="166" class="mono b">Spins up <tspan fill="#FED7AA">name-v2</tspan> and</text>
+    <text x="24" y="188" class="mono b">stores your work there.</text>
+    <text x="24" y="210" class="mono b">Original never touched.</text>
+  </g>
+
+  <!-- 3 safe -->
+  <g transform="translate(652 30)">
+    <rect class="c" width="290" height="240" rx="18"/>
+    <rect x="24" width="242" height="3" rx="1.5" fill="url(#flow)"/>
+    <rect x="24" y="26" width="46" height="46" rx="12" fill="url(#tile)"/>
+    <path class="icon" d="M47 36 L58 40 V49 C58 56 53 61 47 63 C41 61 36 56 36 49 V40 Z M42 49 L46 53 L53 45"/>
+    <text x="24" y="112" class="sans t">Safe by default</text>
+    <text x="24" y="144" class="mono b">No passwords typed.</text>
+    <text x="24" y="166" class="mono b">No secrets committed.</text>
+    <text x="24" y="188" class="mono b">Private when unsure.</text>
+    <text x="24" y="210" class="mono b">Never deletes a repo.</text>
+  </g>
+
+  <!-- 4 anywhere -->
+  <g transform="translate(966 30)">
+    <rect class="c" width="290" height="240" rx="18"/>
+    <rect x="24" width="242" height="3" rx="1.5" fill="url(#flow)"/>
+    <rect x="24" y="26" width="46" height="46" rx="12" fill="url(#tile)"/>
+    <path class="icon" d="M41 41 L34 49 L41 57 M53 41 L60 49 L53 57 M49 39 L45 59"/>
+    <text x="24" y="112" class="sans t">Works anywhere</text>
+    <text x="24" y="144" class="mono b">Claude.ai or Claude</text>
+    <text x="24" y="166" class="mono b">Code, cloud or local.</text>
+    <text x="24" y="188" class="mono b">Uses whatever is</text>
+    <text x="24" y="210" class="mono b">signed in: gh or Chrome.</text>
+  </g>
+</svg>

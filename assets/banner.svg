@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="repo-launcher: create a GitHub repo and ship code in one prompt">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#150B2B"/>
+      <stop offset="1" stop-color="#0A0712"/>
+    </linearGradient>
+    <radialGradient id="glowP" cx="0.12" cy="0.05" r="0.65">
+      <stop offset="0" stop-color="#7C3AED" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowO" cx="0.98" cy="1.05" r="0.6">
+      <stop offset="0" stop-color="#F97316" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FB923C" stop-opacity="0.35"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.045"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1280" height="420" rx="22"/></clipPath>
+    <style>
+      .mono{font-family:'JetBrains Mono','Fira Code','SFMono-Regular',Menlo,Consolas,'DejaVu Sans Mono',monospace}
+      .sans{font-family:Inter,'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif}
+      .ln{animation:in .55s ease-out both}
+      @keyframes in{from{opacity:0}to{opacity:1}}
+      .d1{animation-delay:.3s}.d2{animation-delay:.9s}.d3{animation-delay:1.5s}
+      .d4{animation-delay:2.1s}.d5{animation-delay:2.7s}.d6{animation-delay:3.3s}
+      .blink{animation:blink 1.1s steps(1) infinite}
+      @keyframes blink{50%{opacity:0}}
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1280" height="420" fill="url(#bg)"/>
+    <rect width="1280" height="420" fill="url(#grid)"/>
+    <rect width="1280" height="420" fill="url(#glowP)"/>
+    <rect width="1280" height="420" fill="url(#glowO)"/>
+  </g>
+  <rect x="0.5" y="0.5" width="1279" height="419" rx="22" fill="none" stroke="url(#edge)"/>
+
+  <!-- left: identity -->
+  <rect x="72" y="66" width="214" height="30" rx="15" fill="#7C3AED" fill-opacity="0.16" stroke="#A78BFA" stroke-opacity="0.45"/>
+  <circle cx="91" cy="81" r="4.5" fill="#FB923C"/>
+  <text x="104" y="86" class="mono" font-size="13" fill="#DDD6FE" letter-spacing="1.5">CLAUDE SKILL · v1.1</text>
+
+  <text x="70" y="168" class="sans" font-size="66" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">repo<tspan fill="url(#brand)">-launcher</tspan></text>
+
+  <text x="72" y="216" class="sans" font-size="22" fill="#EDE9FE" fill-opacity="0.88">Create a GitHub repo and ship code to it,</text>
+  <text x="72" y="248" class="sans" font-size="22" fill="#EDE9FE" fill-opacity="0.88">in one prompt. Even when Claude <tspan fill="#FB923C" font-weight="700">can't</tspan>.</text>
+
+  <g class="mono" font-size="13">
+    <rect x="72" y="284" width="118" height="30" rx="8" fill="#FFFFFF" fill-opacity="0.04" stroke="#A78BFA" stroke-opacity="0.5"/>
+    <text x="131" y="304" text-anchor="middle" fill="#DDD6FE">auto-create</text>
+    <rect x="202" y="284" width="196" height="30" rx="8" fill="#FFFFFF" fill-opacity="0.04" stroke="#FB923C" stroke-opacity="0.6"/>
+    <text x="300" y="304" text-anchor="middle" fill="#FED7AA">self-healing fallback</text>
+    <rect x="410" y="284" width="148" height="30" rx="8" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.35"/>
+    <text x="484" y="304" text-anchor="middle" fill="#FFFFFF">safe by default</text>
+  </g>
+
+  <text x="72" y="368" class="mono" font-size="13" fill="#8E84B8">github.com/<tspan fill="#C4B5FD">MAYANKKONTEY</tspan>/claude-repo-launcher</text>
+
+  <!-- right: terminal -->
+  <rect x="690" y="54" width="536" height="312" rx="16" fill="#0E0919" fill-opacity="0.92" stroke="url(#edge)"/>
+  <path d="M690 92 H1226" stroke="#FFFFFF" stroke-opacity="0.07"/>
+  <circle cx="714" cy="73" r="6" fill="#FB923C"/>
+  <circle cx="734" cy="73" r="6" fill="#A78BFA"/>
+  <circle cx="754" cy="73" r="6" fill="#FFFFFF" fill-opacity="0.75"/>
+  <text x="958" y="78" text-anchor="middle" class="mono" font-size="12" fill="#7D739F">~/projects — claude</text>
+
+  <g class="mono" font-size="15">
+    <text class="ln d1" x="714" y="130"><tspan fill="#FB923C">❯</tspan><tspan x="736" fill="#FFFFFF">claude "make a repo &amp; ship it"</tspan></text>
+    <text class="ln d2" x="714" y="166"><tspan fill="#FB923C">✗</tspan><tspan x="736" fill="#C9C2E6">gh auth</tspan><tspan x="900" fill="#8E84B8">fallback → chrome</tspan></text>
+    <text class="ln d3" x="714" y="196"><tspan fill="#A78BFA">✓</tspan><tspan x="736" fill="#C9C2E6">github.com/new</tspan><tspan x="900" fill="#8E84B8">repo created</tspan></text>
+    <text class="ln d4" x="714" y="226"><tspan fill="#A78BFA">✓</tspan><tspan x="736" fill="#C9C2E6">attach + clone</tspan><tspan x="900" fill="#8E84B8">./my-project</tspan></text>
+    <text class="ln d5" x="714" y="256"><tspan fill="#A78BFA">✓</tspan><tspan x="736" fill="#C9C2E6">git push</tspan><tspan x="900" fill="#8E84B8">main → main</tspan></text>
+    <text class="ln d6" x="714" y="286"><tspan fill="#A78BFA">✓</tspan><tspan x="736" fill="#FFFFFF" font-weight="700">live</tspan><tspan x="900" fill="#FED7AA">github.com/you/my-project</tspan></text>
+    <text x="714" y="334" fill="#FB923C">❯</text>
+    <rect class="blink" x="736" y="320" width="10" height="18" rx="1" fill="#FB923C"/>
+  </g>
+</svg>

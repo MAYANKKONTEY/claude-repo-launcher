@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Workflow: check access, create repo, attach, build, push, verify, with a self-healing fallback that creates a new repo when an existing one is unreachable">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#130A26"/>
+      <stop offset="1" stop-color="#0A0712"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="flowU" gradientUnits="userSpaceOnUse" x1="56" y1="0" x2="1226" y2="0">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#FB923C" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#FFFFFF" fill-opacity="0.06"/>
+    </pattern>
+    <marker id="arP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#C4B5FD"/>
+    </marker>
+    <marker id="arO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#FB923C"/>
+    </marker>
+    <style>
+      .mono{font-family:'JetBrains Mono','Fira Code','SFMono-Regular',Menlo,Consolas,'DejaVu Sans Mono',monospace}
+      .sans{font-family:Inter,'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif}
+      .run{stroke-dasharray:5 5;animation:run 1.2s linear infinite}
+      @keyframes run{to{stroke-dashoffset:-20}}
+      .card{fill:#170F2C;stroke:#A78BFA;stroke-opacity:.28}
+    </style>
+  </defs>
+
+  <rect width="1280" height="420" rx="22" fill="url(#bg)"/>
+  <rect width="1280" height="420" rx="22" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="1279" height="419" rx="22" fill="none" stroke="url(#edge)"/>
+
+  <text x="56" y="52" class="mono" font-size="13" fill="#A78BFA" letter-spacing="3">HOW IT WORKS</text>
+  <text x="1224" y="52" text-anchor="end" class="mono" font-size="13" fill="#7D739F">6 steps · 1 prompt</text>
+
+  <!-- connectors -->
+  <g stroke="url(#flowU)" stroke-width="2" fill="none">
+    <path class="run" d="M226 160 H250" marker-end="url(#arP)"/>
+    <path class="run" d="M426 160 H450" marker-end="url(#arP)"/>
+    <path class="run" d="M626 160 H650" marker-end="url(#arP)"/>
+    <path class="run" d="M826 160 H850" marker-end="url(#arP)"/>
+    <path class="run" d="M1026 160 H1050" marker-end="url(#arP)"/>
+  </g>
+
+  <!-- cards -->
+  <g>
+    <rect class="card" x="56" y="92" width="170" height="136" rx="14"/>
+    <rect x="56" y="92" width="170" height="3" rx="1.5" fill="url(#flow)"/>
+    <text x="76" y="126" class="mono" font-size="13" fill="#FB923C">01</text>
+    <text x="76" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Check access</text>
+    <text x="76" y="186" class="mono" font-size="12" fill="#A99BD6">gh auth status</text>
+    <text x="76" y="205" class="mono" font-size="12" fill="#A99BD6">fastest route</text>
+
+    <rect class="card" x="256" y="92" width="170" height="136" rx="14"/>
+    <rect x="256" y="92" width="170" height="3" rx="1.5" fill="url(#flow)"/>
+    <text x="276" y="126" class="mono" font-size="13" fill="#FB923C">02</text>
+    <text x="276" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Create repo</text>
+    <text x="276" y="186" class="mono" font-size="12" fill="#A99BD6">auto-named</text>
+    <text x="276" y="205" class="mono" font-size="12" fill="#A99BD6">no forms for you</text>
+
+    <rect class="card" x="456" y="92" width="170" height="136" rx="14"/>
+    <rect x="456" y="92" width="170" height="3" rx="1.5" fill="url(#flow)"/>
+    <text x="476" y="126" class="mono" font-size="13" fill="#FB923C">03</text>
+    <text x="476" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Attach</text>
+    <text x="476" y="186" class="mono" font-size="12" fill="#A99BD6">add_repo + clone</text>
+    <text x="476" y="205" class="mono" font-size="12" fill="#A99BD6">push access</text>
+
+    <rect class="card" x="656" y="92" width="170" height="136" rx="14"/>
+    <rect x="656" y="92" width="170" height="3" rx="1.5" fill="url(#flow)"/>
+    <text x="676" y="126" class="mono" font-size="13" fill="#FB923C">04</text>
+    <text x="676" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Build</text>
+    <text x="676" y="186" class="mono" font-size="12" fill="#A99BD6">README, code</text>
+    <text x="676" y="205" class="mono" font-size="12" fill="#A99BD6">.gitignore</text>
+
+    <rect class="card" x="856" y="92" width="170" height="136" rx="14"/>
+    <rect x="856" y="92" width="170" height="3" rx="1.5" fill="url(#flow)"/>
+    <text x="876" y="126" class="mono" font-size="13" fill="#FB923C">05</text>
+    <text x="876" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Push</text>
+    <text x="876" y="186" class="mono" font-size="12" fill="#A99BD6">commit + push</text>
+    <text x="876" y="205" class="mono" font-size="12" fill="#A99BD6">main → main</text>
+
+    <rect class="card" x="1056" y="92" width="170" height="136" rx="14" stroke="#FB923C" stroke-opacity="0.6"/>
+    <rect x="1056" y="92" width="170" height="3" rx="1.5" fill="#FB923C"/>
+    <text x="1076" y="126" class="mono" font-size="13" fill="#FB923C">06</text>
+    <text x="1076" y="158" class="sans" font-size="19" font-weight="700" fill="#FFFFFF">Verify</text>
+    <text x="1076" y="186" class="mono" font-size="12" fill="#A99BD6">ls-remote + page</text>
+    <text x="1076" y="205" class="mono" font-size="12" fill="#FED7AA">link in chat ✓</text>
+  </g>
+
+  <!-- route note under 02 -->
+  <g class="mono" font-size="12">
+    <text x="276" y="254" fill="#A78BFA">gh ✓ → CLI</text>
+    <text x="276" y="273" fill="#FB923C">gh ✗ → Chrome</text>
+  </g>
+
+  <!-- self-healing fallback -->
+  <path class="run" d="M541 228 V306" stroke="#FB923C" stroke-width="2" fill="none" marker-end="url(#arO)"/>
+  <path class="run" d="M741 306 V234" stroke="#FB923C" stroke-width="2" fill="none" marker-end="url(#arO)"/>
+  <rect x="420" y="310" width="640" height="56" rx="28" fill="#F97316" fill-opacity="0.08" stroke="#FB923C" stroke-opacity="0.7" stroke-dasharray="6 5"/>
+  <text x="740" y="344" text-anchor="middle" class="mono" font-size="13" fill="#FED7AA">↻ repo unreachable?  →  create <tspan fill="#FFFFFF" font-weight="700">name-v2</tspan>  →  store the data  →  continue</text>
+  <text x="560" y="272" class="mono" font-size="11" fill="#FB923C" fill-opacity="0.85">403 · 404 · denied</text>
+
+  <!-- legend -->
+  <g class="mono" font-size="12">
+    <path d="M56 396 H86" stroke="#A78BFA" stroke-width="2"/>
+    <text x="96" y="400" fill="#8E84B8">main flow</text>
+    <path d="M196 396 H226" stroke="#FB923C" stroke-width="2" stroke-dasharray="5 5"/>
+    <text x="236" y="400" fill="#8E84B8">self-healing fallback · original repo never touched</text>
+  </g>
+</svg>
