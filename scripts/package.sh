@@ -13,7 +13,9 @@ cd "$root/skills"
 zip -qr -X "$root/dist/repo-launcher.zip" repo-launcher
 
 # fail loudly if SKILL.md isn't under the skill folder
-unzip -l "$root/dist/repo-launcher.zip" | grep -q " repo-launcher/SKILL.md$" \
+# (list first, then grep: piping into grep -q under pipefail can fail at random)
+listing="$(unzip -l "$root/dist/repo-launcher.zip")"
+grep -q " repo-launcher/SKILL.md$" <<<"$listing" \
   || { echo "bad zip layout" >&2; exit 1; }
 
 echo "built dist/repo-launcher.zip"

@@ -30,11 +30,11 @@ flow without stopping to ask:
 
 | Decision | Auto rule |
 |---|---|
-| Name | kebab-case from the project's purpose (`portfolio-site`, `issue-lens`), ≤ 40 chars |
+| Name | kebab-case from the project's purpose (`portfolio-site`, `issue-lens`), ≤ 40 chars; lowercase, hyphens, no typos |
 | Name taken | Try `<name>-app`, `<name>-2`, … automatically and mention the final name |
 | Description | One line, ≤ 100 chars, what it does |
 | Visibility | Match the user's existing repos (`list_repos`). If they're all public, use public. If none exist or they're mixed, use **private** |
-| Starting files | None; Claude pushes its own README / .gitignore |
+| Starting files | None; Claude pushes its own README / .gitignore, so the first push is clean |
 | License | None, unless the user asks or says "anyone can use it" (then MIT) |
 
 Auto mode **still stops and asks** only when one of these is true:
@@ -223,7 +223,7 @@ If the session provides attribution lines, append them to the commit message.
 | GitHub login page | The user signs in. Never type passwords |
 | Name already exists | Auto-suffix (`-app`, `-2`) and mention it |
 | Existing repo won't clone, fetch or push | Step 3b: rescue into a new repo |
-| `add_repo` auth error for a **new** repo | Relay the reason and point to Settings → Connectors to reconnect GitHub |
+| `add_repo` auth error for a **new** repo | Relay the reason and point to claude.ai Settings → Connectors to reconnect GitHub; don't retry |
 | Clone 429 | Sleep 5 s, retry once |
 | Push 413 | Fetch `--depth=50`, rebase, push |
 | Browser actions fail 2–3 times | Stop and ask. Don't loop |
