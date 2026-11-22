@@ -47,7 +47,7 @@
   <!-- left: identity -->
   <rect x="72" y="66" width="214" height="30" rx="15" fill="#7C3AED" fill-opacity="0.16" stroke="#A78BFA" stroke-opacity="0.45"/>
   <circle cx="91" cy="81" r="4.5" fill="#FB923C"/>
-  <text x="104" y="86" class="mono" font-size="13" fill="#DDD6FE" letter-spacing="1.5">CLAUDE SKILL · v1.1</text>
+  <text x="104" y="86" class="mono" font-size="13" fill="#DDD6FE" letter-spacing="1.5">CLAUDE SKILL · v1.2</text>
 
   <text x="70" y="168" class="sans" font-size="66" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">repo<tspan fill="url(#brand)">-launcher</tspan></text>
 

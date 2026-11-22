@@ -58,7 +58,7 @@ clicking Create.
 gh auth status 2>&1 | head -5
 ```
 
-- **Signed in**: create with the CLI and skip Step 2.
+- **Signed in**: create with the CLI, skip Step 2, and continue at Step 3.
   ```bash
   gh repo create OWNER/NAME --public --description "..."   # or --private
   ```
@@ -79,7 +79,9 @@ gh auth status 2>&1 | head -5
    "Create repository".
 5. Fill the name and description with `form_input`. It sets the exact value,
    while click + `type` can drop characters.
-6. Set visibility. Leave README, .gitignore and license **off**.
+6. Set visibility. It is a dropdown button, not a form field, so `form_input`
+   won't work. Click **Choose visibility**, click Public or Private, and check the
+   button label. Leave README, .gitignore and license **off**.
 7. **Verify**: screenshot and `zoom` on the name and description. Check that
    "✓ name is available" shows. Fix typos now.
 8. Auto mode: click **Create repository**. Confirm mode: show the summary and wait.
@@ -97,8 +99,18 @@ once with a long timeout (≈10 min):
 git clone --depth 1 https://github.com/OWNER/NAME ./NAME
 ```
 
-"You appear to have cloned an empty repository" is expected. If the
-`register_repo_root` tool exists, call it with the clone's absolute path.
+"You appear to have cloned an empty repository" is expected. Two fixes are
+needed right after cloning an empty repo:
+
+```bash
+cd NAME
+# a shallow clone of an empty repo has no fetch refspec, so origin/main never updates
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+# git may have started the branch as "master"; GitHub expects main
+git checkout -q -B main
+```
+
+If the `register_repo_root` tool exists, call it with the clone's absolute path.
 
 Local Claude Code: skip `add_repo`. The user's own git credentials can push.
 
@@ -131,13 +143,27 @@ don't stop. Create a new repo and store the work there.
 2. **Pick visibility.** Copy the original's visibility if known; otherwise use
    **private**. Never make rescued data public unless the original was public
    or the user says so.
-3. **Create it** with Step 1 or Step 2 (auto mode applies).
+3. **Create it** with Step 1 or Step 2 (auto mode applies). In a cloud session,
+   also run `add_repo(owner=OWNER, repo=NEW, access="push")`, because pushes only
+   work for attached repos.
 4. **Move the work:**
-   - Original readable (cloned) but not writable: keep the history.
+   - Original readable (cloned) but not writable: keep the history. A shallow
+     clone **can't** be pushed to a new empty repo; GitHub rejects it with
+     `shallow update not allowed`. Pull the full history first:
      ```bash
      git remote rename origin old-origin
      git remote add origin https://github.com/OWNER/NEW.git
+     if [ "$(git rev-parse --is-shallow-repository)" = true ]; then
+       git fetch --unshallow old-origin
+     fi
      git -c push.negotiate=true push -u origin HEAD:main
+     ```
+     If `--unshallow` fails (hook, size, or access lost), push a snapshot instead.
+     History is lost, but the files are safe:
+     ```bash
+     git checkout -q --orphan rescue-main
+     git commit -qm "Rescued snapshot of OWNER/ORIGINAL"
+     git -c push.negotiate=true push -u origin rescue-main:main
      ```
    - Original not readable at all: copy the local files into the new clone,
      commit them, and push.
@@ -166,7 +192,9 @@ don't stop. Create a new repo and store the work there.
 ```bash
 cd NAME
 git add -A
+git status --short          # last check: no .env, keys or credentials listed
 git commit -m "Initial commit: <what this is>"
+git branch -M main          # guard: GitHub expects main, local git may say master
 git -c push.negotiate=true push -u origin main
 ```
 

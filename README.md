@@ -122,9 +122,14 @@ Auto mode still stops when content looks **sensitive and would go public**, when
 <details open>
 <summary><b>Claude.ai</b> (web or desktop app)</summary>
 
-1. Download [`skills/repo-launcher/SKILL.md`](skills/repo-launcher/SKILL.md).
-2. Put it in a folder named `repo-launcher` and zip the folder.
-3. Upload the zip in Claude's settings, in the **Skills** section under Capabilities.
+1. Download the ready-made ZIP: [`dist/repo-launcher.zip`](dist/repo-launcher.zip) (click **Download raw file**).
+2. In Claude, open **Customize → Skills**.
+3. Click **+** → **Create skill** → **Upload a skill**, and pick the ZIP.
+4. Make sure the skill is toggled **on**.
+
+> Custom skills need a **Pro, Max, Ultra, Team or Enterprise** plan with **code execution** turned on.
+> Zipping it yourself? The ZIP must contain the `repo-launcher/` **folder**, not loose files.
+> `./scripts/package.sh` builds it correctly.
 
 </details>
 
@@ -176,6 +181,10 @@ claude-repo-launcher/
 ├── skills/
 │   └── repo-launcher/
 │       └── SKILL.md        # the workflow Claude follows
+├── dist/
+│   └── repo-launcher.zip   # upload-ready for Claude.ai
+├── scripts/
+│   └── package.sh          # rebuilds the ZIP from skills/
 ├── assets/                 # README artwork (hand-written SVG)
 │   ├── banner.svg
 │   ├── features.svg
@@ -189,6 +198,14 @@ claude-repo-launcher/
 <br>
 
 ## ◆ Changelog
+
+**v1.2: bug fixes** (each one reproduced in a sandbox, then fixed)
+- 🐛 **Rescue push failed** with `shallow update not allowed`. The fallback now pulls the full history first, and pushes a snapshot if it can't.
+- 🐛 **Push to `main` failed** when git started the branch as `master`. The branch is now set to `main` before pushing.
+- 🐛 **`origin/main` never updated** after cloning an empty repo, because no fetch refspec was set. The fetch refspec is now set right after cloning.
+- 🐛 **Visibility couldn't be set** with `form_input`, because it's a dropdown button. The skill now clicks the option instead.
+- 🐛 **Install steps pointed to an old menu.** They now use **Customize → Skills**, and an upload-ready ZIP is included.
+- Rescued repos are attached to the session before pushing, and the skill runs a `git status` check for secrets before every commit.
 
 **v1.1**
 - **Auto mode:** creates the repo with no confirmation step when you ask for one.
